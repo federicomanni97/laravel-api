@@ -21,7 +21,7 @@ class ProjectController extends Controller
     {
         $currentUserId = Auth::id();
         if ($currentUserId == 1) {
-            $projects = Project::paginate(1);
+            $projects = Project::paginate(5);
         } else {
             $projects = Project::where('user_id', $currentUserId)->paginate(3);
         }

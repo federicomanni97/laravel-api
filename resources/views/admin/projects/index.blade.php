@@ -20,8 +20,8 @@
             </tr>
         </tbody>
         </table>
-        {{ $projects->links('vendor.pagination.bootstrap-5')}}
         @endforeach
-            <button class=" btn btn-primary text-white"><a href="{{route('admin.projects.create', $project)}}" class="text-decoration-none text-white">Create</a></button>
+        {{ $projects->links('vendor.pagination.bootstrap-5')}}
+        <button class=" btn btn-primary text-white"><a href="{{route('admin.projects.create', $project)}}" class="text-decoration-none text-white">Create</a></button>
     </section>
 @endsection
