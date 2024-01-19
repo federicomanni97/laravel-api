@@ -19,8 +19,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $currentUserId=Auth::user();
-        $projects = Project::where('user_id', $currentUserId)->paginate(3);
+        $currentUserId = Auth::id();
+        if ($currentUserId == 1) {
+            $projects = Project::paginate(1);
+        } else {
+            $projects = Project::where('user_id', $currentUserId)->paginate(3);
+        }
         // $projects = Project::paginate(3);
         // $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
