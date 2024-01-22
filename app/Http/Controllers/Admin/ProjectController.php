@@ -75,7 +75,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        if(Auth::id() == $project->id){
+        if (Auth::id() == $project->id) {
             return view('admin.projects.show', compact('project'));
         }
         abort(403);
@@ -109,8 +109,8 @@ class ProjectController extends Controller
         }
         // add owners id to formData
         $formData['user_id'] = $project->user_id;
-        if ($request->hasFile('image')){
-            if ($project->image){
+        if ($request->hasFile('image')) {
+            if ($project->image) {
                 Storage::delete($project->image);
             }
             $path = Storage::put('images', $request->image);
