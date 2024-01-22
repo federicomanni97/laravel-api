@@ -9,7 +9,7 @@ use illuminate\Support\Str;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'title', 'slug', 'body', 'image', 'category_id'];
+    protected $fillable = ['user_id', 'title', 'slug', 'body', 'image', 'category_id', 'image_alternative'];
 
     public function user()
     {

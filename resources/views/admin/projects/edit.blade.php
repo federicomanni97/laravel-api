@@ -68,6 +68,14 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="image_alternative">Image Alternative</label>
+                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image_alternative"
+                    id="image_alternative" value="{{ old('image_alternative', $project->image_alternative) }}">
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-primary">Reset</button>
         </form>

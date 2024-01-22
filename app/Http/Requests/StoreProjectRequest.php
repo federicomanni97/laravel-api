@@ -24,9 +24,10 @@ class StoreProjectRequest extends FormRequest
         return [
             'title'=>['required', 'min:3', 'max:255', 'unique:projects' ],
             'body'=> ['nullable'],
-            'image'=> ['nullable', 'image'], 
+            'image'=> ['nullable', 'image'],
             'category_id' => ['nullable', 'exists:categories,id'],
-            'technologies' => ['exists:technologies,id']
+            'technologies' => ['exists:technologies,id'],
+            'image_alternative'=> ['nullable', 'image']
         ];
     }
 
@@ -36,7 +37,9 @@ class StoreProjectRequest extends FormRequest
             'title.unique' => 'Il progetto con questo titolo è già esistente',
             'title.min' => 'Il titolo deve avere almeno :min caratteri',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
+            'image.image' => 'L\'image non è valido',
+            'image_alternative.image' => 'L\'image alternativa non è valido'
             // 'image.url' => 'L\'url non è valido',
-        ]; 
+        ];
     }
 }

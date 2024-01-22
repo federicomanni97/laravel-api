@@ -27,7 +27,8 @@ class UpdateProjectRequest extends FormRequest
             'body'=> ['nullable'],
             'category_id' => ['nullable', 'exists:categories,id'],
             'technologies' => ['exists:technologies,id'],
-            'image'=> ['nullable', 'image']
+            'image'=> ['nullable', 'image'],
+            'image_alternative'=> ['nullable', 'image']
         ];
     }
 
@@ -38,6 +39,7 @@ class UpdateProjectRequest extends FormRequest
             'title.min' => 'Il titolo deve avere almeno :min caratteri',
             'title.max' => 'Il titolo deve avere massimo :max caratteri',
             'image.image' => 'L\'image non è valido',
+            'image_alternative.image' => 'L\'image alternativa non è valido'
         ];
     }
 }

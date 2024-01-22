@@ -61,7 +61,11 @@ class ProjectController extends Controller
             $img_path = Storage::put('uploads', $request->image);
             $formData['image'] = $img_path;
         }
+        if ($request->hasFile('image_alternative')) {
 
+            $img_path = Storage::put('uploads', $request->image_alternative);
+            $formData['image_alternative'] = $img_path;
+        }
         $project = Project::create($formData);
         if ($request->has('technologies')) {
             $project->technologies()->attach($request->technologies);
@@ -115,6 +119,13 @@ class ProjectController extends Controller
             }
             $path = Storage::put('images', $request->image);
             $formData['image'] = $path;
+        }
+        if ($request->hasFile('image_alternative')) {
+            if ($project->image_alternative) {
+                Storage::delete($project->image_alternative);
+            }
+            $path = Storage::put('images', $request->image_alternative);
+            $formData['image_alternative'] = $path;
         }
         $project->update($formData);
         if ($request->has('technologies')) {
