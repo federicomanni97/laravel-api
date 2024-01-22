@@ -55,7 +55,7 @@
         </div>
         <div class="my-3">
             <label class="my-1" for="image">Image</label>
-            <input type="file" class="form-control @error('title') is-invalid @enderror" name="image" id="image" value="{{old('image')}}">
+            <input type="file" class="form-control @error('title') is-invalid @enderror" name="image" id="image">
             @error('image')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
